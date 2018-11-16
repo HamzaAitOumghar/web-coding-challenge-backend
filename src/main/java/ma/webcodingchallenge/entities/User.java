@@ -4,6 +4,7 @@ package ma.webcodingchallenge.entities;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,11 +21,11 @@ public class User {
 	private String email;
 	private String password;
 	
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="user_role",joinColumns=@JoinColumn(name="user_Id",referencedColumnName="id"),inverseJoinColumns=@JoinColumn(name="role_Id",referencedColumnName="id"))
 	private Set<Role> user_roles;
 	
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="user_shop",joinColumns=@JoinColumn(name="user_Id",referencedColumnName="id"),inverseJoinColumns=@JoinColumn(name="shop_Id",referencedColumnName="id"))
 	private Set<Shop> likedShop;
 	

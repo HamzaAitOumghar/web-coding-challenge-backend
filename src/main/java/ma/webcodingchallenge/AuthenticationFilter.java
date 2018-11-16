@@ -38,8 +38,10 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter{
 		
 		User user = null;
 		
+		
 		try {
 			user = new ObjectMapper().readValue(request.getInputStream(), User.class);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

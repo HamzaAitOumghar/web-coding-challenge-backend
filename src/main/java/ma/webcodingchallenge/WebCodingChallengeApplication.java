@@ -30,24 +30,24 @@ public class WebCodingChallengeApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Role role = new Role();
-		role.setName("ROLE_USER");
-		this.roleRepo.save(role);
-		
-		User user = new User();
-		
-		user.setEmail("hamza@hamza.fr");
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		
-		user.setPassword(encoder.encode("hamza"));
-		
-		Set<Role> user_roles = new HashSet<>();
-		user_roles.add(role);
-		
-		user.setUser_roles(user_roles);
-		
-		
-		this.userRepo.save(user);
+//		Role role = new Role();
+//		role.setName("ROLE_USER");
+//		this.roleRepo.save(role);
+//		
+//		User user = new User();
+//		
+//		user.setEmail("hamza@hamza.fr");
+//		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//		
+//		user.setPassword(encoder.encode("hamza"));
+//		
+//		Set<Role> user_roles = new HashSet<>();
+//		user_roles.add(role);
+//		
+//		user.setUser_roles(user_roles);
+//		
+//		
+//		this.userRepo.save(user);
 		
 	}
 	

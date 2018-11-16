@@ -25,6 +25,7 @@ public class AuthorizationFilter extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
 	
+		
 		response.addHeader("Access-Control-Allow-Origin", "*");
 
 		response.addHeader("Access-Control-Allow-Headers",
@@ -51,6 +52,7 @@ public class AuthorizationFilter extends OncePerRequestFilter {
 					.parseClaimsJws(jwt.replace(SecurityUtil.TOKEN_PREFIX, "")).getBody();
 
 			String username = claims.getSubject();
+			
 			ArrayList<Map<String, String>> roles = (ArrayList<Map<String, String>>) claims.get("roles");
 			Collection<GrantedAuthority> authorities = new ArrayList<>();
 
