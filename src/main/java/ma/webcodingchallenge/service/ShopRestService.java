@@ -31,6 +31,14 @@ public class ShopRestService {
 	public List<Shop> getShopsList() {
 		return this.shopRepository.findAllByOrderByDistanceAsc();
 	}
+	
+	@RequestMapping(value = "/preferredShops/{email}",method=RequestMethod.GET)
+	public Set<Shop> getPreferredShopsList(@PathVariable("email") String email) {
+		User user = this.userRepository.findByEmail(email);
+		return user.getLikedShop();
+		
+	}
+	
 
 	@RequestMapping(value = "/addLikedShop/{email}", method = RequestMethod.POST)
 	public User addNewPreferredShop(@PathVariable("email") String email, @RequestBody Shop shop) {
