@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Role {
 
@@ -18,6 +20,7 @@ public class Role {
 	
 	
 	@ManyToMany(mappedBy="user_roles")
+	@JsonIgnore
 	private Set<User> role_users;
 	
 	public Long getId() {

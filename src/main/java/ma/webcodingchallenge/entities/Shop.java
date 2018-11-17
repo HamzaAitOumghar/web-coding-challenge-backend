@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Shop {
 
@@ -18,6 +20,7 @@ public class Shop {
 	private double distance;
 	
 	@ManyToMany(mappedBy="likedShop")
+	@JsonIgnore
 	private Set<User> likedBy;
 
 	public Long getId() {
